@@ -1,2 +1,3 @@
-# ember-frost-link
-A simple link component for frost.
+#### Select the link below to view the README content and interactive DEMO page.
+
+### [Readme and Interactive App Demo](https://bitbucket.ciena.com/pages/NMS_FROST/frost-link/gh-pages/browse/)

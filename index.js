@@ -2,8 +2,10 @@
 
 'use strict'
 
+const pkg = require('./package.json')
+
 module.exports = {
-  name: 'frost-link',
+  name: pkg.name,
 
   included: function (app) {
     this._super.included(app)

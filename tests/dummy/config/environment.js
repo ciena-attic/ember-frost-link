@@ -13,7 +13,7 @@ module.exports = function (environment) {
   }
 
   if (environment === 'production') {
-    ENV.baseURL = '/pages/NMS_FROST/frost-link/gh-pages/browse'
+    ENV.baseURL = '/ember-frost-link'
   }
 
   if (environment === 'test') {

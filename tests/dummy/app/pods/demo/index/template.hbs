@@ -1,57 +1,4 @@
-{{#frost-tabs on-change=(action 'tabSelected') selection=selectedTab}}
-  {{#frost-tab alias='Readme' id='readme'}}
-    <div id='content'>
-      {{#frost-docs 'frost-link'}}
-        {{#frost-docs-api}}
-          {{#frost-docs-api-category 'css (content)'}}
-            {{frost-docs-api-css 'icon' 'default or provided by user'}}
-            {{frost-docs-api-css 'icon-text' 'allowed file extensions'}}
-            {{frost-docs-api-css 'info' 'allowed file extensions'}}
-            {{frost-docs-api-css 'text' 'allowed file extensions'}}
-          {{/frost-docs-api-category}}
 
-          {{#frost-docs-api-category 'css (size)'}}
-            {{frost-docs-api-css 'small' 'small link button'}}
-            {{frost-docs-api-css 'medium' 'medium link button'}}
-            {{frost-docs-api-css 'large' 'large link button'}}
-            {{frost-docs-api-css 'extra-large' 'extra-large link button'}}
-          {{/frost-docs-api-category}}
-
-          {{#frost-docs-api-category 'css (type)'}}
-            {{frost-docs-api-css 'primary' 'primary link button'}}
-            {{frost-docs-api-css 'secondary' 'secondary link button'}}
-            {{frost-docs-api-css 'tertriary' 'tertiary link button'}}
-          {{/frost-docs-api-category}}
-
-          {{#frost-docs-api-category 'states'}}
-            {{frost-docs-api-attribute 'disabled' 'disabled element'}}
-          {{/frost-docs-api-category}}
-        {{/frost-docs-api}}
-
-        {{#frost-docs-examples}}
-          {{frost-docs-example basic}}
-          {{frost-docs-example first1}}
-          {{frost-docs-example nested}}
-          {{frost-docs-example disabled}}
-          {{frost-docs-example primary}}
-          {{frost-docs-example secondary}}
-          {{frost-docs-example tertiary}}
-          {{frost-docs-example icon}}
-          {{frost-docs-example icontext}}
-          {{frost-docs-example info}}
-        {{/frost-docs-examples}}
-
-        {{#frost-docs-references}}
-          {{frost-docs-reference 'Link helpers' 'http://guides.emberjs.com/v2.1.0/templates/links/'}}
-        {{/frost-docs-references}}
-
-        {{#frost-docs-changelog}}
-          {{frost-docs-changelog-entry '2.0.0' "Initial version"}}
-        {{/frost-docs-changelog}}
-      {{/frost-docs}}
-    </div>
-  {{/frost-tab}}
-  {{#frost-tab alias='Demo' id='demo' }}
     <div class='dummy-padding'>
       <div class='dummy-header'>Basic</div>
       {{#frost-link 'demo.min' id='basic'}}Basic{{/frost-link}}
@@ -435,6 +382,3 @@
 
       </div>
     </div>
-
-  {{/frost-tab}}
-{{/frost-tabs}}

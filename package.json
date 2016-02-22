@@ -1,6 +1,6 @@
 {
   "name": "ember-frost-link",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The default blueprint for ember-cli addons.",
   "directories": {
     "doc": "doc",
@@ -16,10 +16,9 @@
   "engines": {
     "node": ">= 5.0.0"
   },
-  "author": "",
   "author": "Quincy Le (https://github.com/glacierbreaker)",
   "contributors": [
-    "Steven Glanzer (https://github.com/sglanzer)", 
+    "Steven Glanzer (https://github.com/sglanzer)",
     "Gosia Hyndman (https://github.com/vesper2000)",
     "Matthew Dahl (https://github.com/sandersky)"
   ],

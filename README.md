@@ -27,7 +27,7 @@ ember install ember-frost-link
 
 ## Examples
 
-COMING SOON
+COMING SOON...
 
 ## Development
 ### Setup

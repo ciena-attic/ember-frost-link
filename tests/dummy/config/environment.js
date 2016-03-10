@@ -1,3 +1,5 @@
+var routingConfig = require('./routing')
+
 module.exports = function (environment) {
   var ENV = {
     modulePrefix: 'dummy',
@@ -9,7 +11,9 @@ module.exports = function (environment) {
       FEATURES: {}
     },
 
-    APP: {}
+    APP: {
+      routingConfig: routingConfig
+    }
   }
 
   if (environment === 'production') {

@@ -2,7 +2,7 @@
   "name": "ember-frost-link",
   "version": "1.0.1",
   "description": "The default blueprint for ember-cli addons.",
-  "frostGuideDirectory": "ui-components/button-controls/link",
+  "frostGuideDirectory": "UI-components/button-controls/link",
   "directories": {
     "doc": "doc",
     "test": "tests"

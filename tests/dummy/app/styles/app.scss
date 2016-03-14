@@ -1,3 +1,5 @@
+@import 'node_modules/ember-frost-css-core/scss/frost-core';
+
 // Everything larger than portrait phone
 @mixin phone-portrait-and-up {
   @media only screen and (min-width: 425px + 1) {

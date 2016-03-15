@@ -1,9 +1,6 @@
 import Ember from 'ember'
 
 export default Ember.Controller.extend({
-  queryParams: ['selectedTab'],
-  selectedTab: 'readme',
-
   first: {
     id: 3,
     text: 'custom first'
@@ -21,10 +18,6 @@ export default Ember.Controller.extend({
         autoClear: true,
         clearDuration: 2000
       })
-    },
-
-    tabSelected (tab) {
-      this.set('selectedTab', tab)
     }
   },
 

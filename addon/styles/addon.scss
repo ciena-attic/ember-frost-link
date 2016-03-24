@@ -1,4 +1,13 @@
 @import 'node_modules/ember-frost-theme/scss/frost-theme';
+@import 'node_modules/ember-frost-css-core/scss/frost-core';
+
+$frost-color-link-primary-focus-bg: #a1e7ff;
+$frost-color-link-primary-pressed-bg: #1e9de5;
+$frost-color-link-secondary-pressed-bg: #e7eef3;
+
+
+$frost-color-link-focus-box-shadow: 0 1px 6px rgba(0,158,239, 0.75);
+
 
 .frost-link {
   display: inline-block;
@@ -10,11 +19,12 @@
   user-select: none;
 
    &.disabled {
-    opacity: 0.25 !important;
+    opacity: 0.25;
     box-shadow: none !important;
-    border: none !important;
+    border: none;
+    cursor: default;
     &:hover {
-      background-color: inherit !important;
+      background-color: inherit
     }
   }
 
@@ -30,23 +40,37 @@
   // Function based coloring
   &.primary {
     background: linear-gradient(lighten($frost-color-blue-1, 14), $frost-color-blue-1);
+    //background-color: $frost-color-button-primary-bg;
     color: $frost-color-white;
 
     &:hover {
-      opacity:0.8;
-      background-color:$frost-color-blue-2;
+      background: $frost-color-blue-3;
     }
 
     &:focus{
-      border:2px solid $frost-color-blue-3;
-      box-shadow:0 2px 8px rgba($frost-color-blue-1, 0.75);
+      border: 2px solid $frost-color-link-primary-focus-bg;
+      box-shadow: $frost-color-link-focus-box-shadow;
       outline:0;
     }
 
     &:active {
-      background-color:$frost-color-blue-2;
-      opacity:0.7;
       box-shadow:none;
+    }
+
+    &.is-pressed {
+      background: $frost-color-link-primary-pressed-bg;
+      .content {
+        opacity: 0.5;
+      }
+    }
+
+    &.disabled {
+      &:hover {
+        background: linear-gradient(lighten($frost-color-blue-1, 14), $frost-color-blue-1);
+      }
+      &:focus {
+        border: none;
+      }
     }
   }
 
@@ -56,20 +80,37 @@
     color: $frost-color-blue-1;
 
     &:hover {
-      background-color:rgba($frost-color-blue-1, 0.1);
+      background-color:rgba($frost-color-blue-1, 0.05);
       box-shadow: none;
     }
 
     &:focus {
       outline:0;
-      box-shadow:0 1px 6px rgba($frost-color-blue-1, 0.75);
+      box-shadow: $frost-color-link-focus-box-shadow;
     }
 
     &:active {
-      background-color: rgba($frost-color-blue-1, 0.1);
-      opacity: 0.7;
-      color: $frost-color-blue-1;
       box-shadow: none;
+    }
+
+    .is-focused {
+      .text{
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+      }
+    }
+
+    &.is-pressed {
+      background: $frost-color-link-secondary-pressed-bg;
+      .content {
+        opacity: 0.5;
+      }
+    }
+
+    &.disabled {
+      &:hover {
+        background: none;
+      }
     }
   }
 
@@ -77,26 +118,36 @@
     background-color: inherit;
     color: $frost-color-blue-1;
 
-    &:hover {
-      background-color:rgba($frost-color-blue-1, 0.1);
+    .text {
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
     }
 
-    &:active {
-      color: $frost-color-blue-3;
+    &:hover {
+      background-color:rgba($frost-color-blue-1, 0.05);
     }
 
     &:focus{
-     outline:0;
-     box-shadow:0 1px 6px rgba($frost-color-blue-1, 0.75);
+      outline:0;
+      box-shadow:0 1px 6px rgba($frost-color-blue-1, 0.75);
     }
 
     &:active {
-      background-color: rgba($frost-color-blue-1, 0.1);
-      opacity: 0.7;
-      color: $frost-color-blue-1;
       box-shadow: none;
     }
+
+    &.is-pressed {
+      .content {
+        color: $frost-color-blue-2;
+      }
+    }
+
+    &.disabled {
+      opacity: 0.3;
+      background: none;
+    }
   }
+
 
   // Sizes
   &.extra-large {
@@ -156,8 +207,18 @@
       vertical-align: middle;
       text-align: center;
       padding: 0 1px 2px 1px;
-      border-bottom-width: 1px;
-      border-bottom-style: solid;
+    //  border-bottom-width: 1px;
+    //  border-bottom-style: solid;
+    }
+
+    .svg {
+      margin-left: 10px;
+    }
+  }
+
+  &.disabled >.content {
+    .text{
+      opacity: 1;
     }
   }
   // Content - text

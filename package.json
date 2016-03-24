@@ -53,7 +53,8 @@
     "eslint-config-frost-standard": "^1.0.0",
     "frost-guide-custom-routing": "0.0.2",
     "liquid-fire": "^0.23.0",
-    "loader.js": "^4.0.1"
+    "loader.js": "^4.0.1",
+    "markdown-code-highlighting": "0.0.6"
   },
   "keywords": [
     "ember-addon",

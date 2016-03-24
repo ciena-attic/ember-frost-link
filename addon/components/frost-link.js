@@ -1,6 +1,5 @@
 import Ember from 'ember'
 import layout from '../templates/components/frost-link'
-import _ from 'lodash/lodash'
 
 function addPriorityClass (priority, classes) {
   switch (priority) {
@@ -36,8 +35,6 @@ function addSizeClass (size, classes) {
   }
 }
 
-
-
 export default Ember.LinkComponent.extend({
   classNames: ['frost-link'],
 
@@ -70,41 +67,41 @@ export default Ember.LinkComponent.extend({
     if ((!Ember.ViewUtils.isSimpleClick(event)) || this.get('disabled')) {
       return true
     }
-    this.set('isPressed', true);
+    this.set('isPressed', true)
   }),
 
   onMouseUp: Ember.on('mouseUp', function () {
-    if(this.get('disabled')){
+    if (this.get('disabled')) {
       return true
     }
-    this.set('isPressed', false);
+    this.set('isPressed', false)
   }),
 
   onMouseEnter: Ember.on('mouseEnter', function () {
-    if(this.get('disabled')){
+    if (this.get('disabled')) {
       return true
     }
-    this.set('isHovered', true);
+    this.set('isHovered', true)
   }),
 
   onMouseLeave: Ember.on('mouseLeave', function () {
-    if(this.get('disabled')){
+    if (this.get('disabled')) {
       return true
     }
-    this.set('isHovered', false);
+    this.set('isHovered', false)
   }),
 
   onFocusIn: Ember.on('focusIn', function () {
-    if(this.get('disabled')){
+    if (this.get('disabled')) {
       return true
     }
-    this.set('isFocused', true);
+    this.set('isFocused', true)
   }),
 
   onFocusOut: Ember.on('focusOut', function () {
-    if(this.get('disabled')){
+    if (this.get('disabled')) {
       return true
     }
-    this.set('isFocused', false);
+    this.set('isFocused', false)
   })
 })

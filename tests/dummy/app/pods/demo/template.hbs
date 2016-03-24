@@ -1,7 +1,18 @@
+<div class="dummy-body link">
+    <div class="section-title">Primary</div>
 <div class="section">
-    <div class="title">frost-link(Primary)</div>
     <div class="example">
         <div class="title">Disabled</div>
+        <div class="demo">
+          {{#frost-link
+          'demo.min'
+          priority='primary'
+          size='small'
+          disabled=true
+          }}
+              <div class='text'>Primary</div>
+          {{/frost-link}}
+        </div>
         <div class="snippet">
           {{format-markdown "```handlebars
 {{#frost-link
@@ -15,20 +26,19 @@
 ```"
           }}
         </div>
+    </div>
+
+    <div class="example">
+        <div class="title">Small</div>
         <div class="demo">
           {{#frost-link
           'demo.min'
           priority='primary'
           size='small'
-          disabled=true
           }}
               <div class='text'>Primary</div>
           {{/frost-link}}
         </div>
-    </div>
-
-    <div class="example">
-        <div class="title">Small</div>
         <div class="snippet">
           {{format-markdown "```handlebars
 {{#frost-link
@@ -41,19 +51,19 @@
 ```"
           }}
         </div>
-        <div class="demo">
-          {{#frost-link
-          'demo.min'
-          priority='primary'
-          size='small'
-          }}
-              <div class='text'>Primary</div>
-          {{/frost-link}}
-        </div>
     </div>
 
     <div class="example">
         <div class="title">Medium</div>
+        <div class="demo">
+          {{#frost-link
+          'demo.min'
+          priority='primary'
+          size='medium'
+          }}
+              <div class='text'>Primary</div>
+          {{/frost-link}}
+        </div>
         <div class="snippet">
           {{format-markdown "```handlebars
 {{#frost-link
@@ -66,19 +76,19 @@
 ```"
           }}
         </div>
-        <div class="demo">
-          {{#frost-link
-          'demo.min'
-          priority='primary'
-          size='medium'
-          }}
-              <div class='text'>Primary</div>
-          {{/frost-link}}
-        </div>
     </div>
 
     <div class="example">
         <div class="title">Large</div>
+        <div class="demo">
+          {{#frost-link
+          'demo.min'
+          priority='primary'
+          size='large'
+          }}
+              <div class='text'>Primary</div>
+          {{/frost-link}}
+        </div>
         <div class="snippet">
           {{format-markdown "```handlebars
 {{#frost-link
@@ -91,20 +101,14 @@
 ```"
           }}
         </div>
-        <div class="demo">
-          {{#frost-link
-          'demo.min'
-          priority='primary'
-          size='large'
-          }}
-              <div class='text'>Primary</div>
-          {{/frost-link}}
-        </div>
     </div>
 </div>
 
-<div class="section">
-    <div class="title">frost-link(Secondary)</div>
+    <hr>
+
+    <div class="section-title">Secondary</div>
+
+    <div class="section">
     <div class="example">
         <div class="title">Disabled</div>
         <div class="snippet">
@@ -208,8 +212,10 @@
     </div>
 </div>
 
+  <hr>
+    <div class="section-title">Tertiary</div>
+
 <div class="section">
-    <div class="title">frost-link(Tertiary)</div>
     <div class="example">
         <div class="title">Disabled</div>
         <div class="snippet">
@@ -315,4 +321,5 @@
 
 <div class='outlet'>
   {{outlet}}
+</div>
 </div>

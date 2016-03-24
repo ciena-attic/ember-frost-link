@@ -40,8 +40,7 @@ export default Ember.LinkComponent.extend({
 
   classNameBindings: [
     'disabled',
-    'extraClasses',
-    'isPressed'
+    'extraClasses'
   ],
 
   attributeBindings: [
@@ -60,47 +59,5 @@ export default Ember.LinkComponent.extend({
     addPriorityClass(this.get('priority'), classes)
 
     return classes.join(' ')
-  }),
-
-  onMouseDown: Ember.on('mouseDown', function (event) {
-    if ((!Ember.ViewUtils.isSimpleClick(event)) || this.get('disabled')) {
-      return true
-    }
-    this.set('isPressed', true)
-  }),
-
-  onMouseUp: Ember.on('mouseUp', function () {
-    if (this.get('disabled')) {
-      return true
-    }
-    this.set('isPressed', false)
-  }),
-
-  onMouseEnter: Ember.on('mouseEnter', function () {
-    if (this.get('disabled')) {
-      return true
-    }
-    this.set('isHovered', true)
-  }),
-
-  onMouseLeave: Ember.on('mouseLeave', function () {
-    if (this.get('disabled')) {
-      return true
-    }
-    this.set('isHovered', false)
-  }),
-
-  onFocusIn: Ember.on('focusIn', function () {
-    if (this.get('disabled')) {
-      return true
-    }
-    this.set('isFocused', true)
-  }),
-
-  onFocusOut: Ember.on('focusOut', function () {
-    if (this.get('disabled')) {
-      return true
-    }
-    this.set('isFocused', false)
   })
 })

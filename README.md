@@ -35,7 +35,7 @@ ember install ember-frost-link
 
 ## Examples
 
-### Text
+### Primary small
 ```handlebars
 {{#frost-link
   'routename'
@@ -43,6 +43,16 @@ ember install ember-frost-link
   size='small'
 }}
   <div class='text'>Primary</div>
+{{/frost-link}}
+```
+
+### Font based on size
+```handlebars
+{{#frost-link
+  'routename'
+  priority='tertiary'
+}}
+  <div class='text'>Tertiary</div>
 {{/frost-link}}
 ```
 

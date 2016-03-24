@@ -23,11 +23,28 @@ ember install ember-frost-link
 
 | Attribute | Type | Value | Description |
 | --------- | ---- | ----- | ----------- |
+| `disabled` | `boolean` | `false` | **default**: Click to redirect from one route to another |
+| | | `true` | :no_entry_sign: Can't click this! :notes: |
+| `size` | `string` | `small` | The smallest link you ever did see |
+| | | `medium` | **default**: Not quite as small as `small`, but not very big either |
+| | | `large` | Now *that's* what I call a link! |
+| `priority` | `string` | `primary` | Call-to-action :telephone: |
+| | | `secondary` | **default**: Run of the mill, garden variety  |
+| | | `tertiary` | Low-key, subdued  |
 
 
 ## Examples
 
-COMING SOON…
+### Text
+```handlebars
+{{#frost-link
+  'routename'
+  priority='primary'
+  size='small'
+}}
+  <div class='text'>Primary</div>
+{{/frost-link}}
+```
 
 ## Development
 ### Setup

@@ -52,7 +52,7 @@ export default Ember.LinkComponent.extend({
     'disabled'
   ],
 
-  priority: 'secondary',
+  priority: '',
 
   size: 'medium',
 

@@ -45,11 +45,10 @@ export default Ember.LinkComponent.extend({
   ],
 
   attributeBindings: [
-    'isPressed',
     'disabled'
   ],
 
-  priority: '',
+  priority: 'secondary',
 
   size: 'medium',
 

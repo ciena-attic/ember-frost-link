@@ -1,1 +1,1 @@
-export { default } from 'ember-frost-link/pods/components/frost-link/component'
+export { default } from 'ember-frost-link/components/frost-link'

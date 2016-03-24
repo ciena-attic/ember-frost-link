@@ -1,20 +1,27 @@
 @import 'node_modules/ember-frost-theme/scss/frost-theme';
+@import 'node_modules/ember-frost-css-core/scss/frost-core';
+
+//TODO move to frost-theme
+$frost-color-link-primary-focus-bg: #a1e7ff;
+$frost-color-link-primary-pressed-bg: #1e9de5;
+$frost-color-link-secondary-pressed-bg: #e7eef3;
+$frost-color-link-focus-box-shadow: 0 1px 6px rgba(0,158,239, 0.75);
+
 
 .frost-link {
   display: inline-block;
   text-align: center;
-  border: none;
   border-radius: 2px;
   text-decoration: none;
   cursor: pointer;
   user-select: none;
 
    &.disabled {
-    opacity: 0.25 !important;
-    box-shadow: none !important;
-    border: none !important;
-    &:hover {
-      background-color: inherit !important;
+    border: none;
+    cursor: default;
+
+     &:hover {
+      background-color: inherit
     }
   }
 
@@ -29,24 +36,40 @@
 
   // Function based coloring
   &.primary {
+    border: none;
     background: linear-gradient(lighten($frost-color-blue-1, 14), $frost-color-blue-1);
     color: $frost-color-white;
 
     &:hover {
-      opacity:0.8;
-      background-color:$frost-color-blue-2;
+      background: $frost-color-blue-3;
     }
 
     &:focus{
-      border:2px solid $frost-color-blue-3;
-      box-shadow:0 2px 8px rgba($frost-color-blue-1, 0.75);
+      border: 2px solid $frost-color-link-primary-focus-bg;
+      box-shadow: $frost-color-link-focus-box-shadow;
       outline:0;
     }
 
     &:active {
-      background-color:$frost-color-blue-2;
-      opacity:0.7;
-      box-shadow:none;
+      &:not(.disabled) {
+        box-shadow:none;
+        background: $frost-color-link-primary-pressed-bg;
+        .content {
+          opacity: 0.5;
+        }
+      }
+    }
+
+    &.disabled {
+      box-shadow: none;
+      opacity: 0.25;
+
+      &:hover {
+        background: linear-gradient(lighten($frost-color-blue-1, 14), $frost-color-blue-1);
+      }
+      &:focus {
+        border: none;
+      }
     }
   }
 
@@ -56,20 +79,46 @@
     color: $frost-color-blue-1;
 
     &:hover {
-      background-color:rgba($frost-color-blue-1, 0.1);
+      background-color:rgba($frost-color-blue-1, 0.05);
       box-shadow: none;
+      &:not(.disabled) {
+        .text{
+          border-bottom-width: 1px;
+          border-bottom-style: solid;
+        }
+      }
     }
 
     &:focus {
       outline:0;
-      box-shadow:0 1px 6px rgba($frost-color-blue-1, 0.75);
+      box-shadow: $frost-color-link-focus-box-shadow;
+
+      &:not(.disabled) {
+        .text{
+          border-bottom-width: 1px;
+          border-bottom-style: solid;
+        }
+      }
     }
 
     &:active {
-      background-color: rgba($frost-color-blue-1, 0.1);
-      opacity: 0.7;
-      color: $frost-color-blue-1;
       box-shadow: none;
+      background: $frost-color-link-secondary-pressed-bg;
+
+      &:not(.disabled) {
+        .content {
+          opacity: 0.5;
+        }
+      }
+    }
+
+    &.disabled {
+      box-shadow: none;
+      opacity: 0.25;
+
+      &:hover {
+        background: none;
+      }
     }
   }
 
@@ -77,43 +126,44 @@
     background-color: inherit;
     color: $frost-color-blue-1;
 
-    &:hover {
-      background-color:rgba($frost-color-blue-1, 0.1);
+    .text {
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
     }
 
-    &:active {
-      color: $frost-color-blue-3;
+    &:hover {
+      background-color:rgba($frost-color-blue-1, 0.05);
     }
 
     &:focus{
-     outline:0;
-     box-shadow:0 1px 6px rgba($frost-color-blue-1, 0.75);
+      outline:0;
+      box-shadow:0 1px 6px rgba($frost-color-blue-1, 0.75);
     }
 
     &:active {
-      background-color: rgba($frost-color-blue-1, 0.1);
-      opacity: 0.7;
-      color: $frost-color-blue-1;
+      box-shadow: none;
+
+      &:not(.disabled) {
+        .content {
+          color: $frost-color-blue-2;
+        }
+      }
+    }
+
+    &.disabled {
+      opacity: 0.3;
+      background: none;
       box-shadow: none;
     }
   }
 
   // Sizes
-  &.extra-large {
-    height: 60px;
-    padding: 0 20px 0 20px;
-    font-size: $frost-font-l;
-
-    .frost-icon {
-      width: 40px;
-      height: 40px;
-    }
-  }
-
   &.large {
-    height: 50px;
-    padding: 0 20px;
-    font-size: $frost-font-l;
+    &:not(.tertiary) {
+      height: 50px;
+      font-size: $frost-font-l;
+      padding: 0 20px;
+    }
 
     .frost-icon {
       width: 40px;
@@ -122,9 +172,11 @@
   }
 
   &.medium {
-    height: 40px;
-    padding: 0 20px;
-    font-size: $frost-font-m;
+    &:not(.tertiary) {
+      padding: 0 20px;
+      height: 40px;
+      font-size: $frost-font-m;
+    }
 
     .frost-icon {
       width: 30px;
@@ -134,179 +186,42 @@
   }
 
    &.small {
-    height: 30px;
-    padding: 0 10px;
-    font-size: $frost-font-s;
+     &:not(.tertiary) {
+       height: 30px;
+       font-size: $frost-font-s;
+       padding: 0 10px;
+     }
 
-    .frost-icon {
+     .frost-icon {
       width: 20px;
       height: 20px;
     }
    }
+
+  &:not(.tertiary) {
+    > .content {
+      min-width: 120px;
+    }
+  }
 
   > .content {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
-    min-width: 120px;
     box-sizing: border-box;
 
     .text {
       vertical-align: middle;
       text-align: center;
       padding: 0 1px 2px 1px;
-      border-bottom-width: 1px;
-      border-bottom-style: solid;
-    }
-  }
-  // Content - text
-  &.text {
-    // Deprecated format
-    vertical-align: middle;
-    &.small {
-      line-height: 32px;
-    }
-    &.medium {
-      line-height: 42px;
-    }
-    &.large {
-      line-height: 52px;
-    }
-    &.extra-large {
-      line-height: 30px;
-    }
-  }
-
-  > .text {
-    // Deprecated format
-    vertical-align: middle;
-    text-align: center;
-    padding: 5px 1px 2px 1px;
-    border-bottom-width: 1px;
-    border-bottom-style: solid;
-  }
-
-  // Content - icon
-  &.icon {
-    // Deprecated format
-    display: inline-flex;
-    align-items: center;
-  }
-
-  > .icon {
-    height: 100%;
-    display: flex;
-    align-items: center;
-  }
-
-  // Content - text-info
-  > .icon-text {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    .text {
-      padding-left: 20px;
-    }
-  }
-
-  // Content - text-info
-  > .text-icon {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-
-    .text {
-      padding-right: 10px;
     }
 
-    .frost-icon {
-      display: flex;
-      align-items: center;
-      width: 15px;
-      height: 15px;
-    }
-  }
-
-  // Content - info
-  > .info {
-    display: flex;
-    align-items: center;
-    padding-top: 6px;
-
-    .content {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      padding-left: 10px;
-      padding-bottom: 3px;
-      line-height: 15px;
-
-
-      .alias {
-        font-size: $frost-font-l;
-        color: $frost-color-white;
-        line-height: 32px;
-      }
-
-      .details {
-        font-size: $frost-font-s;
-        color: rgba($frost-color-white, 0.8);
+    .svg {
+      margin-left: 10px;
+      .frost-icon {
+        vertical-align: middle;
       }
     }
-  }
-
-  // Create button styling
-  > .icon-action {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    width: 75px;
-    height: 75px;
-    background-color: $frost-color-white;
-    color: $frost-color-blue-1;
-
-    .frost-icon  {
-      padding-bottom: 0px;
-      width: 40px;
-      height: 40px;
-    }
-
-
-    .text {
-      display: inline-block;
-      padding: 5px 1px 2px 1px;
-      border-bottom-width: 1px;
-      border-bottom-style: solid;
-      margin-top: -5px;
-      font-size: $frost-font-s;
-      color: $frost-color-blue-1;
-      line-height: 1;
-    }
-
-    &:hover {
-      background-color:rgba($frost-color-blue-1, 0.1);
-    }
-
-    &:focus{
-      outline:0;
-      box-shadow:0 1px 6px rgba($frost-color-blue-1, 0.75);
-    }
-
-    &:active {
-      background-color: rgba($frost-color-blue-1, 0.1);
-      opacity: 0.7;
-      color: $frost-color-blue-1;
-      box-shadow: none;
-    }
-  }
-
-  &.separator {
-    border-right: 1px solid $frost-color-lgrey-1;
-  }
-
-  &.space {
-    width: 5px;
   }
 }

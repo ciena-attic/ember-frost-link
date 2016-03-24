@@ -68,6 +68,9 @@ pre {
     .demo {
       display: block;
       vertical-align: top;
+      .actions{
+        margin-top: 5px;
+      }
     }
   }
 }

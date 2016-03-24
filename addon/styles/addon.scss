@@ -1,6 +1,7 @@
 @import 'node_modules/ember-frost-theme/scss/frost-theme';
 @import 'node_modules/ember-frost-css-core/scss/frost-core';
 
+//TODO move to frost-theme
 $frost-color-link-primary-focus-bg: #a1e7ff;
 $frost-color-link-primary-pressed-bg: #1e9de5;
 $frost-color-link-secondary-pressed-bg: #e7eef3;
@@ -50,10 +51,12 @@ $frost-color-link-focus-box-shadow: 0 1px 6px rgba(0,158,239, 0.75);
     }
 
     &:active {
-      box-shadow:none;
-      background: $frost-color-link-primary-pressed-bg;
-      .content {
-        opacity: 0.5;
+      &:not(.disabled) {
+        box-shadow:none;
+        background: $frost-color-link-primary-pressed-bg;
+        .content {
+          opacity: 0.5;
+        }
       }
     }
 
@@ -78,10 +81,11 @@ $frost-color-link-focus-box-shadow: 0 1px 6px rgba(0,158,239, 0.75);
     &:hover {
       background-color:rgba($frost-color-blue-1, 0.05);
       box-shadow: none;
-
-      .text{
-        border-bottom-width: 1px;
-        border-bottom-style: solid;
+      &:not(.disabled) {
+        .text{
+          border-bottom-width: 1px;
+          border-bottom-style: solid;
+        }
       }
     }
 
@@ -89,17 +93,22 @@ $frost-color-link-focus-box-shadow: 0 1px 6px rgba(0,158,239, 0.75);
       outline:0;
       box-shadow: $frost-color-link-focus-box-shadow;
 
-      .text{
-        border-bottom-width: 1px;
-        border-bottom-style: solid;
+      &:not(.disabled) {
+        .text{
+          border-bottom-width: 1px;
+          border-bottom-style: solid;
+        }
       }
     }
 
     &:active {
       box-shadow: none;
       background: $frost-color-link-secondary-pressed-bg;
-      .content {
-        opacity: 0.5;
+
+      &:not(.disabled) {
+        .content {
+          opacity: 0.5;
+        }
       }
     }
 
@@ -133,8 +142,11 @@ $frost-color-link-focus-box-shadow: 0 1px 6px rgba(0,158,239, 0.75);
 
     &:active {
       box-shadow: none;
-      .content {
-        color: $frost-color-blue-2;
+
+      &:not(.disabled) {
+        .content {
+          color: $frost-color-blue-2;
+        }
       }
     }
 
@@ -147,9 +159,11 @@ $frost-color-link-focus-box-shadow: 0 1px 6px rgba(0,158,239, 0.75);
 
   // Sizes
   &.large {
-    height: 50px;
-    padding: 0 20px;
-    font-size: $frost-font-l;
+    &:not(.tertiary) {
+      height: 50px;
+      font-size: $frost-font-l;
+      padding: 0 20px;
+    }
 
     .frost-icon {
       width: 40px;
@@ -158,9 +172,11 @@ $frost-color-link-focus-box-shadow: 0 1px 6px rgba(0,158,239, 0.75);
   }
 
   &.medium {
-    height: 40px;
-    padding: 0 20px;
-    font-size: $frost-font-m;
+    &:not(.tertiary) {
+      padding: 0 20px;
+      height: 40px;
+      font-size: $frost-font-m;
+    }
 
     .frost-icon {
       width: 30px;
@@ -170,22 +186,29 @@ $frost-color-link-focus-box-shadow: 0 1px 6px rgba(0,158,239, 0.75);
   }
 
    &.small {
-    height: 30px;
-    padding: 0 10px;
-    font-size: $frost-font-s;
+     &:not(.tertiary) {
+       height: 30px;
+       font-size: $frost-font-s;
+       padding: 0 10px;
+     }
 
-    .frost-icon {
+     .frost-icon {
       width: 20px;
       height: 20px;
     }
    }
+
+  &:not(.tertiary) {
+    > .content {
+      min-width: 120px;
+    }
+  }
 
   > .content {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
-    min-width: 120px;
     box-sizing: border-box;
 
     .text {
@@ -196,6 +219,9 @@ $frost-color-link-focus-box-shadow: 0 1px 6px rgba(0,158,239, 0.75);
 
     .svg {
       margin-left: 10px;
+      .frost-icon {
+        vertical-align: middle;
+      }
     }
   }
 }
